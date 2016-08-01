@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wizard With Progress Bar using events</title>
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../prettify.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class='container'>
+			<section id="wizard">
+			  <div class="page-header">
+	            <h1>Carbon Footprint Calculator</h1>
+	          </div>
+
+				<div id="rootwizard">
+					<div class="navbar">
+					  <div class="navbar-inner">
+					    <div class="container">
+					<ul>
+					  	<!-- <li><a href="#tab1" data-toggle="tab">Introduction</a></li> -->
+						<li><a href="#tab2" data-toggle="tab">House</a></li>
+						<li><a href="#tab3" data-toggle="tab">Transportation</a></li>
+						<li><a href="#tab4" data-toggle="tab">Habits</a></li>
+						<li><a href="#tab5" data-toggle="tab">Good Habits</a></li>
+						<!-- <li><a href="#tab6" data-toggle="tab">Results</a></li> -->
+					</ul>
+					 </div>
+					  </div>
+					</div>
+                    <div id="bar" class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                    </div>
+					
+					<div class="tab-content">
+					    <div class="tab-pane" id="tab1">
+					      Do you know how much carbon footprints a plastic bag, a pair of one-time-use chopsticks can leave on earth? Sometimes, a small thing we do can heat up the world; low-carbon society can not only lead us to a more natural environment, but also can help cool down our planet. Each action we take, will help protect our earth. 
+					      <br/>
+					      <nr/>
+					      你知道一个塑料袋、一双一次性筷子会在地球上留下多少碳足迹吗？ 生活中一些不经意的小事都会给地球加热，而绿色低碳的生活方式不仅可以引领我们走向自然，而且可以帮助地球降温。保护一个适宜家园，需要你我小小的行动。
+					    </div>
+					    <div class="tab-pane" id="tab2"> 
+
+<p>How many people are there in your family：<select class="text" id="Person"> 
+<option value="1" selected="">1</option> <option value="2">2</option> <option value="3">3</option> 
+<option value="4">4</option> <option value="5">5</option> <option value="6">6+</option></select></p>
+<p>Do you use heater in winter? (冬季是否用暖气取暖？)：<input type="checkbox" id="Heat" value="2.5675"></p>
+<p>Living area (住宅面积) : <input id="area" value="10">㎡（平方米）</p>
+<p>Electricity (用电度数) : <input id="Electric" value="50"> KWH/Mon（度/月）</p>
+<p>Natural Gas (天然气) : <input id="Gas" value="10"> m³/Mon（立方米/月）</p>
+<p>Water : <input id="H2O" value="10"> TON/Mon（吨/月）</p>
+
+					    </div>
+						<div class="tab-pane" id="tab3">
+
+<p>Aircraft（飞机）：<input id="Fly" value="0"> KM/Year（千米/年）</p>
+<p>Train（火车）：<input id="Trains" value="500" name="text10"> KM/Year（千米/年）(北京到上海约1500公里)</p>
+<p>Bus（公交）：<input id="Buses" value="10" name="text3"> KM/Day（千米/天）</p>
+<p>Subway（地铁）：<input id="Underground" value="10"> Stop/Day（站/天）</p>
+<p>Taxi（私家车/出租/公家车）：<input id="Cars" value="0" name="text5"> KM/Day（千米/天）</p>
+<p>Elevator（电梯）：<input id="Lift" value="10" name="text4"> Floor/Day（层/天）</p>
+
+					    </div>
+						<div class="tab-pane" id="tab4">
+
+<p>Number of plastic bags you used（每周消耗塑料袋个数）：<input id="Bags" value="10"> per day（个/周）</p>
+<p>How many pairs of one-time used chopsticks do you use (每周消耗一次性筷子) ：<input id="Chopstick" value="10"> per week（双/周）</p>
+<p>How many new clothes have you purchased（每半年新买衣服）：<input id="Dress" value="4"> / half year（件/半年）</p>
+<p>Amount of rice you eat everyday：<input id="Rice_food" value="2"> bowl/day（碗/天）</p>
+<p>Amount of meat you eat everyday：<input id="Pork" value="1"> plates/day（盘/天）</p>
+<p>time of use of computer/pad/phone ：<input id="computer" value="4"> hours/day（小时/天）</p>
+<p style="display:none;">平均每天收发电子邮件数：<input id="email" value="0">（封/天）</p>
+<p style="display:none;">每天使用搜索次数：<input id="web_search" value="0">（次/天）（如Google，百度）</p>
+<p>books/magazine you bought：<input id="Book" value="2"> per month（册/月）</p>
+<p>paper you printed：<input id="paper_A4" value="20"> Pieces/Mon（张/月）</p>
+
+					    </div>
+						<div class="tab-pane" id="tab5">
+
+<p>Biking (自行车代步)：<input id="Bicycle" value="0"> KM/Day（千米/天）</p>
+<p><input id="efficientLights" type="checkbox" value="68.6"> I use energy saving light bulb at home（节能灯泡，在亮度相等的情况下，节能灯泡比普通钨丝灯泡节省20%的能源） </p>
+<p><input id="turnsOffLights" type="checkbox" value="4.7"> I always turn off lights when I’m leaving the room 我习惯随手关灯</p>
+<p><input id="equipmentStandby" type="checkbox" value="6"> I put my electronic appliances on standby when I am not using them.我不使电器处于待机状态 </p>
+<p><input id="showers" type="checkbox" value="469.8"> I take shower instead of bath （我习惯淋浴而非盆浴）  </p>
+<p><input id="recycle_old" type="checkbox" value="42"> I reuse at least 30% of family goods （我循环使用至少30%的家庭废旧物品）</p>
+<p><input id="solarWaterHeater" type="checkbox" value="308"> My family has solar water heater （太阳能热水器）</p>
+
+					    </div>
+						<div class="tab-pane" id="tab6">
+							6
+					    </div>
+						<ul class="pager wizard">
+							<li class="previous first" style="display:none;"><a href="#">First</a></li>
+							<li class="previous"><a href="#">Previous</a></li>
+							<li class="next last" style="display:none;"><a href="#">Last</a></li>
+						  	<li class="next"><a href="#">Next</a></li>
+						  	<li class="finish"><a href="javascript:;">Calculate</a></li>
+						</ul>
+					</div>
+					
+				</div>
+			</section>
+			
+			<div class="page-footer">
+  <p>Amount of carbon emission you make（您一年排放CO2）: <input id="result" value="这里显示结果">(吨)</p>
+  <p>The amount of CO₂ of 1.3 billion Chinese population released each year（13亿中国人每年排放CO2）：<input id="ChineseCO2" value="这里显示结果"> Ton (吨)</p>
+  <p> 相当于<input id="ChineseCO2ppm" value="这里显示结果"> ppmv/year (年）</p>
+  <p>Global temperature will rise by（全球气温会因此升高）<input id="temperature" value="这里显示结果"> degree/year（摄氏度/年）</p>
+  <p>Number of trees you have to plant to make up for your carbon emission（除去世界人均森林，您1年排放的CO2还需）<input id="trees" value="植树数量">棵树用10年来抵偿！</p>
+  
+  </p>
+</div>
+	</div>
+    <script src="../jquery-latest.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../jquery.bootstrap.wizard.js"></script>
+	<!-- <script src="../prettify.js"></script> -->
+	<script>
+	$(document).ready(function() {
+
+		var getResult = function() {
+		    var a;
+		    Family_numbers = parseInt(Person.value);
+		    LivingArea = parseInt(area.value);
+		    Electricity = parseInt(Electric.value);
+		    NaturalGas = parseInt(Gas.value);
+		    Water = parseInt(H2O.value);
+		    Aircraft = parseInt(Fly.value);
+		    Train = parseInt(Trains.value);
+		    Bus = parseInt(Buses.value);
+		    Subway = parseInt(Underground.value);
+		    Taxi = parseInt(Cars.value);
+		    Elevator = parseInt(Lift.value);
+		    Bike = parseInt(Bicycle.value);
+		    Plastic_bags = parseInt(Bags.value);
+		    Chopsticks = parseInt(Chopstick.value);
+		    Clothes = parseInt(Dress.value);
+		    Rice = parseInt(Rice_food.value);
+		    Meat = parseInt(Pork.value);
+		    ComputerTime = parseInt(computer.value);
+		    Email_number = parseInt(email.value);
+		    Search_number = parseInt(web_search.value);
+		    book_magazine = parseInt(Book.value);
+		    paper = parseInt(paper_A4.value);
+		    if (document.getElementById('Heat').checked == 1) {
+		        Heating = document.getElementById("Heat").value
+		    } else {
+		        Heating = 0
+		    }; if (document.getElementById('efficientLights').checked == 1) {
+		        efficientLight = document.getElementById("efficientLights").value
+		    } else {
+		        efficientLight = 0
+		    } if (document.getElementById('turnsOffLights').checked == 1) {
+		        turnsOffLight = document.getElementById("turnsOffLights").value
+		    } else {
+		        turnsOffLight = 0
+		    } if (document.getElementById('equipmentStandby').checked == 1) {
+		        equipmentStandbyHabit = document.getElementById("equipmentStandby").value
+		    } else {
+		        equipmentStandbyHabit = 0
+		    } if (document.getElementById('showers').checked == 1) {
+		        shower = document.getElementById("showers").value
+		    } else {
+		        shower = 0
+		    } if (document.getElementById('recycle_old').checked == 1) {
+		        recycle = document.getElementById("recycle_old").value
+		    } else {
+		        recycle = 0
+		    } if (document.getElementById('solarWaterHeater').checked == 1) {
+		        solarWater = document.getElementById("solarWaterHeater").value
+		    } else {
+		        solarWater = 0
+		    }
+		    a = (Electricity * 1.02 * 12 + NaturalGas * 1.7978 * 12 + Water * 0.4512 * 12 + Heating * LivingArea * 35) / Family_numbers + Aircraft * 0.139 + Train * 0.0109 + Bus * 0.032 * 365 + (Subway * 0.125) * 1.02 * 365 + ((Elevator * 3 / 1.5) / 3600) * 15 * 1.02 * 365 + Taxi * 0.24 * 365 + Plastic_bags * 0.0001 * 52 + Chopsticks * (0.0229 + 0.001) * 52 + Clothes * 6.4 * 2 + Rice * 0.047 * 4 * 365 + Meat * 0.6 * 365 + (ComputerTime / 10) * 0.943 * 240 + Email_number * 0.0043 * 365 + Search_number * 0.007 * 365 + book_magazine * 3.3 + paper * 0.015 * 12 - Bike * 0.24 * 365 - efficientLight - turnsOffLight - equipmentStandbyHabit - shower - recycle - solarWater;
+		    TreeNumber = (a - 2700 * 0.52) / 185;
+		    if (TreeNumber < 0) {
+		        TreeNumber = 0
+		    };
+		    TotalChineseCO2 = a * 1300000000;
+		    TotalChineseCO2ppm = TotalChineseCO2 / 2000000000000;
+		    Temp = 0.015 * TotalChineseCO2ppm;
+		    CO2_by_ton = a / 1000;
+		    CO2_by_ton = Math.round(CO2_by_ton * 1000) / 1000;
+		    TotalChineseCO2 = Math.round(TotalChineseCO2 * 1) / 1;
+		    TreeNumber = Math.round(TreeNumber * 10) / 10;
+		    TotalChineseCO2ppm = Math.round(TotalChineseCO2ppm * 100) / 100;
+		    Temp = Math.round(Temp * 1000) / 1000;
+		    document.getElementById('result').value = CO2_by_ton;
+		    document.getElementById('trees').value = TreeNumber;
+		    document.getElementById('ChineseCO2').value = TotalChineseCO2 / 1000;
+		    document.getElementById('ChineseCO2ppm').value = TotalChineseCO2ppm;
+		    document.getElementById('temperature').value = Temp
+		};
+
+	  	$('#rootwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
+			var $total = navigation.find('li').length;
+			var $current = index+1;
+			var $percent = ($current/$total) * 100;
+			$('#rootwizard .progress-bar').css({width:$percent+'%'});
+		}});
+		
+		$('#rootwizard .finish').click(function() {
+			getResult();
+		});
+	});
+	</script>
+  </body>
+</html>
